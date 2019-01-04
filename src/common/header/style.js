@@ -3,7 +3,7 @@ import logPic from '../../statics/images/nav-logo.png';
 
 export const HeaderWrapper = styled.div`
   width: 100%;
-  min-width: 1080px;
+  min-width: 780px;
   height: 58px;
   background: #fff;
   border-bottom: 1px solid #f0f0f0;
@@ -48,10 +48,6 @@ export const NavItem = styled.div`
   &.left{
     float: left;
   }
-  &.right{
-    float: right;
-    color: #969696;
-  }
   &.active{
     color: #ea6f5a;
   }
@@ -62,7 +58,7 @@ export const NavSearch = styled.div`
   padding: 9px 10px 9px 15px;
   float: left;
   position: relative;
-    .iconfont{
+  .iconfont{
     width: 30px;
     height: 30px;
     border-radius: 15px;
@@ -71,23 +67,12 @@ export const NavSearch = styled.div`
     top: 13px;
     text-align: center;
     line-height: 28px;
+    cursor: pointer;
   }
-    .iconFocused{
-      background: #969696;
-      color: #fff;
-    }
-    .slide-enter{
-      transition: all 0.3s ease-out;
-    }
-    .slide-enter-active{
-      width: 240px;
-    }
-    .slide-exit{
-     transition: all 0.3s ease-out;
-    }
-    .slide-exit-active{
-      width: 160px;
-    }
+  .iconFocused{
+    background: #969696;
+    color: #fff;
+  }
 `;
 
 export const NavSearchInput = styled.input.attrs({
@@ -107,6 +92,18 @@ export const NavSearchInput = styled.input.attrs({
   }
   &::placeholder{
     color: #999;
+  }
+  &.slide-enter{
+    transition: all 0.3s ease-out;
+  }
+  &.slide-enter-active{
+    width: 240px;
+  }
+  &.slide-exit{
+   transition: all 0.3s ease-out;
+  }
+  &.slide-exit-active{
+    width: 160px;
   }
 `;
 
@@ -145,5 +142,10 @@ export const Button = styled.button`
       background: rgba(236, 97, 73, 1.0);
       border: 1px solid rgba(236, 97, 73, 1.0);
     }
+  }
+  &.button_no_color{
+    border: none;
+    color: #969696;
+    background: none;
   }
 `;
