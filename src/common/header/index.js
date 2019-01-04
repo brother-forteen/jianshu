@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { CSSTransition } from 'react-transition-group';
 import { actionCreators } from './store';
@@ -8,56 +8,95 @@ import {
     Nav,
     NavItem,
     NavSearch,
+    SearchInfo,
+    SearchInfoTrending,
+    SearchInfoHeader,
+    SearchInfoTag,
+    SearchInfoTagItem,
+    SearchInfoItemLink,
+    SearchInfoSwitch,
     NavSearchInput,
     Addition,
     Button
 } from './style';
 
-const Header = (props) => {
-    return (
-        <HeaderWrapper>
-            <Logo />
-            <Nav>
-                <NavItem className='left active'>首页</NavItem>
-                <NavItem className='left'>下载App</NavItem>
-                <NavSearch>
-                    <CSSTransition
-                        timeout={300}
-                        in={props.focus}
-                        classNames='slide'
-                    >
-                        <NavSearchInput
-                            className={props.focus ? 'focused' : ''}
-                            onFocus={props.handleInputFocus}
-                            onBlur={props.handleInputBlur}
-                        />
-                    </CSSTransition>
-                    <i className={props.focus ? 'iconFocused iconfont' : 'iconfont'}>&#xe62b;</i>
-                </NavSearch>
-            </Nav>
-            <Addition>
-                <Button className='button_no_color'><i className="iconfont">&#xe636;</i></Button>
-                <Button className='button_no_color'>登陆</Button>
-                <Button className='reg'>注册</Button>
-                <Button className='writing'><i className="iconfont">&#xe62d;</i> 写文章</Button>
-            </Addition>
-        </HeaderWrapper>
-    )
-};
+class Header extends Component {
+    render() {
+        const { focus, handleInputFocus, handleInputBlur } = this.props;
+        return (
+            <HeaderWrapper>
+                <Logo />
+                <Nav>
+                    <NavItem className='left active'>首页</NavItem>
+                    <NavItem className='left'>下载App</NavItem>
+                    <NavSearch>
+                        <CSSTransition
+                            timeout={300}
+                            in={focus}
+                            classNames='slide'
+                        >
+                            <NavSearchInput
+                                className={focus ? 'focused' : ''}
+                                onFocus={handleInputFocus}
+                                onBlur={handleInputBlur}
+                            />
+                        </CSSTransition>
+                        <i className={focus ? 'iconFocused iconfont' : 'iconfont'}>&#xe62b;</i>
+                        {this.getListArea()}
+                    </NavSearch>
+                </Nav>
+                <Addition>
+                    <Button className='button_no_color'><i className="iconfont">&#xe636;</i></Button>
+                    <Button className='button_no_color'>登陆</Button>
+                    <Button className='reg'>注册</Button>
+                    <Button className='writing'><i className="iconfont">&#xe62d;</i> 写文章</Button>
+                </Addition>
+            </HeaderWrapper>
+        )
+    }
+    
+    getListArea() {
+        const { focus, list } = this.props;
+        if(focus) {
+            return (
+                <SearchInfo>
+                    <SearchInfoTrending>
+                        <SearchInfoHeader>
+                            热门搜索
+                            <SearchInfoSwitch>
+                                换一批
+                            </SearchInfoSwitch>
+                        </SearchInfoHeader>
+                    
+                        <SearchInfoTag>
+                            {list.map((item, index) => {
+                                    return (<SearchInfoTagItem key={index}><SearchInfoItemLink>{item}</SearchInfoItemLink></SearchInfoTagItem>)
+                                })}
+                        </SearchInfoTag>
+                    </SearchInfoTrending>
+                </SearchInfo>
+            )
+        }else {
+            return null;
+        }
+    }
+}
 
 const mapStateToProps = (state) => {
     return {
-        focus: state.header.get('focus')
+        focus: state.get('header').get('focus'),
+        list: state.get('header').get('list')
     }
 };
 
 const mapDispatchToProps = (dispatch) => {
     return {
-        handleInputFocus(){
+        handleInputFocus() {
+            dispatch(actionCreators.getList());
             dispatch(actionCreators.searchFocus());
         },
         
-        handleInputBlur(){
+        handleInputBlur() {
             dispatch(actionCreators.searchBlur());
         }
     }

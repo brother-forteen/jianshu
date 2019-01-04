@@ -1,6 +1,7 @@
-import { combineReducers } from 'redux';
+import { combineReducers } from 'redux-immutable';
 import { reducer as headReducer } from '../common/header/store';
 
-export default combineReducers({
+const reducer = combineReducers({
     header: headReducer
 });
+export default reducer;
