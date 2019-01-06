@@ -58,7 +58,7 @@ export const NavSearch = styled.div`
   padding: 9px 10px 9px 15px;
   float: left;
   position: relative;
-  .iconfont{
+  .icon{
     width: 30px;
     height: 30px;
     border-radius: 15px;
@@ -135,6 +135,16 @@ export const SearchInfo = styled.div`
     z-index: -1;
     box-shadow: 0 0 8px rgba(0,0,0,.2);
   }
+  &::after{
+    content: "";
+    position: absolute;
+    width: 0;
+    height: 0;
+    border: 12px solid transparent;
+    border-bottom-color: #fff;
+    left: 20px;
+    bottom: 99%;
+  }
 `;
 
 export const SearchInfoTrending = styled.div`
@@ -152,6 +162,13 @@ export const SearchInfoSwitch = styled.a`
   float: right;
   cursor: pointer;
   font-size: 13px;
+  vertical-align: middle;
+  .iconSpin{
+    display: inline-block;
+    font-size: 13px;
+    transition: all 0.5s ease;
+    transform-origin: center center;
+  }
 `;
 
 export const SearchInfoTag = styled.ul``;
