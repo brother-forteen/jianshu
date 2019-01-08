@@ -3,6 +3,9 @@ import { Provider } from 'react-redux';
 import store from './store/index';
 import { GlobalStyle } from './style';
 import { Iconfont } from './statics/iconfont/iconfont';
+import { BrowserRouter, Route } from 'react-router-dom';
+import Home from './pages/home';
+import Detail from './pages/detail';
 import Header from './common/header/index';
 class App extends Component {
     render() {
@@ -12,6 +15,12 @@ class App extends Component {
                 <Iconfont />
                 <Provider store={store}>
                     <Header />
+                    <BrowserRouter>
+                        <div>
+                            <Route path='/' exact component={Home}></Route>
+                            <Route path='/detail' exact  component={Detail}></Route>
+                        </div>
+                    </BrowserRouter>
                 </Provider>
             </div>
         );

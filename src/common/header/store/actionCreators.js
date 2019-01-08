@@ -28,7 +28,7 @@ export const changePage = (currentPage, totalPage) => ({
     type: constants.PAGE_CHANGE,
     currentPage,
     totalPage
-})
+});
 
 export const getList = () => {
     return (dispatch) => {

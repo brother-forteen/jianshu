@@ -10,6 +10,7 @@ export const HeaderWrapper = styled.div`
   position: fixed;
   left: 0;
   top: 0;
+  z-index: 10;
   &:after{
     display: block;
     content: '';
