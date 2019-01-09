@@ -25,28 +25,8 @@ export const ListInfo = styled.div`
   &.padding-right-no_pic{
     padding-right: 2px;
   }
-`;
-
-export const ListA = styled.a.attrs({
-    href: '/',
-    target: '_blank'
-})`
-  &.list-img{
-    position: absolute;
-    top: 50%;
-    margin-top: -50px;
-    right: 0;
-    width: 150px;
-    height: 100px;
-    &.img-show{
-      display: block;
-    }
-    &.img-hide{
-      display: none;
-    }
-  }
-  
-  &.list-title{
+  a{
+    &.list-title{
     margin: -7px 0 4px;
     display: inherit;
     font-size: 18px;
@@ -68,6 +48,27 @@ export const ListA = styled.a.attrs({
     &:active{
       color: #333;
       text-decoration: underline;
+    }
+  }
+  }
+`;
+
+export const ListA = styled.a.attrs({
+    href: '/',
+    target: '_blank'
+})`
+  &.list-img{
+    position: absolute;
+    top: 50%;
+    margin-top: -50px;
+    right: 0;
+    width: 150px;
+    height: 100px;
+    &.img-show{
+      display: block;
+    }
+    &.img-hide{
+      display: none;
     }
   }
   

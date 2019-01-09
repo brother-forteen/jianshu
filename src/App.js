@@ -14,11 +14,13 @@ class App extends Component {
                 <GlobalStyle />
                 <Iconfont />
                 <Provider store={store}>
-                    <Header />
                     <BrowserRouter>
                         <div>
-                            <Route path='/' exact component={Home}></Route>
-                            <Route path='/detail' exact  component={Detail}></Route>
+                            <Header />
+                            <div>
+                                <Route path='/' exact component={Home}></Route>
+                                <Route path='/detail' exact  component={Detail}></Route>
+                            </div>
                         </div>
                     </BrowserRouter>
                 </Provider>
