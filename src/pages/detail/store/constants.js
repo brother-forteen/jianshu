@@ -1,1 +1,1 @@
-export const GET_ARTICLE_DETAIL = 'get-article-detail';
+export const GET_ARTICLE_DETAIL = 'detail/GET_ARTICLE_DETAIL';

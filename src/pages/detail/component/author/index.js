@@ -7,7 +7,7 @@ import {
 
 class AuthorInfo extends Component {
     render() {
-        console.log(this.props.userInfo);
+        console.log(this.props);
         return (
             <AuthorWrapper>
                 <AuthorLink href="/sss">

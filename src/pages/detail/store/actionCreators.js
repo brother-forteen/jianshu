@@ -6,9 +6,9 @@ const getArticleDetailAction = (result) => ({
    detail: result
 });
 
-export const getArticleDetail = (params) => (
+export const getArticleDetail = (id) => (
     (dispatch) => {
-        axios.get(`./api/articleDetail.json?params=${params}`).then(res => {
+        axios.get(`../api/articleDetail.json?id=${id}`).then(res => {
             if(res.data.status === 200){
                 dispatch(getArticleDetailAction(res.data.result));
             }

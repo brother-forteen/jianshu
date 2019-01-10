@@ -24,7 +24,7 @@ class List extends Component {
                         articleList.map((item, index) => (
                             <ListItem key={index}>
                                 <ListInfo className={!!item.get('imgUrl') ? '' : 'padding-right-no_pic'}>
-                                    <Link to={`/detail/${item.get('href')}`} className='list-title'>{item.get('title')}</Link>
+                                    <Link to={`/detail/${item.get('id')}`} className='list-title'>{item.get('title')}</Link>
                                     <ListContent>{item.get('content')}</ListContent>
                                 </ListInfo>
                                 <ListA className={!!item.get('imgUrl') ? 'img-show list-img' : 'img-hide list-img'}>

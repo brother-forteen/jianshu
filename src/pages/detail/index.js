@@ -7,6 +7,7 @@ import {
 import AuthorInfo from './component/author';
 import { actionCreators } from './store';
 import { connect } from 'react-redux';
+import { withRouter } from 'react-router-dom';
 
 class Detail extends Component {
     render() {
@@ -29,8 +30,7 @@ class Detail extends Component {
     }
     
     componentDidMount(){
-        this.props.getDetail();
-       
+        this.props.getDetail(this.props.match.params.id);
     }
 }
 
@@ -39,9 +39,9 @@ const mapStateToProps = (state) => ({
 });
 
 const mapDispatchToProps = (dispatch) => ({
-    getDetail(params){
-        dispatch(actionCreators.getArticleDetail(params))
+    getDetail(id){
+        dispatch(actionCreators.getArticleDetail(id))
     }
 });
 
-export  default connect(mapStateToProps, mapDispatchToProps)(Detail);
+export  default connect(mapStateToProps, mapDispatchToProps)(withRouter(Detail));
