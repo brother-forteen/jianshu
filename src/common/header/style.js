@@ -16,6 +16,9 @@ export const HeaderWrapper = styled.div`
     content: '';
     clear: both;
   }
+  &.hide-header{
+    display: none;
+  }
 `;
 
 export const Logo = styled.div`
@@ -36,21 +39,7 @@ export const Nav = styled.nav`
   padding: 0 200px 0 100px;
 `;
 
-export const NavItem = styled.div`
-  height: 100%;
-  line-height: 26px;
-  padding: 15px;
-  color: #333;
-  margin-right: 10px;
-  font-size: 17px;
-  cursor: pointer;
-  &.left{
-    float: left;
-  }
-  &.active{
-    color: #ea6f5a;
-  }
-`;
+
 
 export const NavSearch = styled.div`
   height: 100%;

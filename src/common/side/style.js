@@ -128,4 +128,10 @@ export const SideShareItem = styled.li`
   color: #333;
   box-sizing: border-box;
   padding-left: 15px;
+  img{
+    width: 30px;
+    height: 30px;
+    vertical-align: middle;
+    margin-right: 10px;
+  }
 `;

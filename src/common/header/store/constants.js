@@ -4,3 +4,4 @@ export const CHANE_LIST = 'header/CHANE_LIST';
 export const MOUSE_ENTER = 'header/MOUSE_ENTER';
 export const MOUSE_LEAVE = 'header/MOUSE_LEAVE0';
 export const PAGE_CHANGE = 'header/PAGE_CHANGE';
+export const SHOW_HEADER = 'header.SHOW_HEADER';

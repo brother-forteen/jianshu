@@ -6,7 +6,8 @@ const defaultState = fromJS({
     mouseIn: false,
     list: [],
     currentPage: 1,
-    totalPage: 1
+    totalPage: 1,
+    showHeader: true
 });
 
 export default (state = defaultState, action) => {
@@ -40,6 +41,10 @@ export default (state = defaultState, action) => {
         case constants.PAGE_CHANGE:
             let nowCurrentPage = action.currentPage < action.totalPage ? ++action.currentPage : 1;
             newState = state.set('currentPage', nowCurrentPage);
+            break;
+            
+        case constants.SHOW_HEADER:
+            newState = state.set('showHeader', action.bool);
             break;
 
         default:

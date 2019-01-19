@@ -6,6 +6,7 @@ import {
 } from './style';
 import { connect } from 'react-redux';
 import { actionCreators } from './store';
+import { actionCreators as headerActionCreators } from '../../common/header/store';
 import Topic from './components/Topic';
 import List from './components/List';
 import Recommend from './components/Recommend';
@@ -40,6 +41,7 @@ class Home extends Component {
     
     componentDidMount() {
         this.props.changeHomeData();
+        this.props.showHeaderFun();
     }
 }
 
@@ -47,7 +49,10 @@ const mapDispatchToProps = (dispatch) => ({
     changeHomeData(){
         const action = actionCreators.getHomeInfo();
         dispatch(action);
-    }
+    },
+    showHeaderFun(){
+        dispatch(headerActionCreators.showHeader(true));
+    },
 });
 
 export default connect(null, mapDispatchToProps)(Home);

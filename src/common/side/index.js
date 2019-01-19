@@ -8,6 +8,12 @@ import {
 } from './style';
 import { connect } from 'react-redux';
 import { actionCreators } from './store';
+import imgZhiFuBao from '../../statics/images/icon1.png'
+import imgWeiBo from '../../statics/images/icon2.png'
+import imgQQKongJian from '../../statics/images/icon3.png'
+import imgQQ from '../../statics/images/icon4.png'
+import imgWeixin from '../../statics/images/icon5.png'
+import imgPengYouQuan from '../../statics/images/icon6.png'
 
 class BackTop extends Component{
     render() {
@@ -26,13 +32,12 @@ class BackTop extends Component{
                         分享文章
                     </SideTag>
                     <SideShareWrap className={sideShareShow ? '' : 'hide-side-share'}>
-                        <a href="/#"><SideShareItem>分享到微信</SideShareItem></a>
-                        <a href="/#"><SideShareItem>分享到微博</SideShareItem></a>
-                        <a href="/#"><SideShareItem>分享到QQ空间</SideShareItem></a>
-                        <a href="/#"><SideShareItem>分享到Twitter</SideShareItem></a>
-                        <a href="/#"><SideShareItem>分享到Facebook</SideShareItem></a>
-                        <a href="/#"><SideShareItem>分享到Google+</SideShareItem></a>
-                        <a href="/#"><SideShareItem>分享到豆瓣</SideShareItem></a>
+                        <a href="/#"><SideShareItem><img src={ imgWeixin } alt=""/>分享到微信</SideShareItem></a>
+                        <a href="/#"><SideShareItem><img src={ imgWeiBo } alt=""/>分享到微博</SideShareItem></a>
+                        <a href="/#"><SideShareItem><img src={ imgQQKongJian } alt=""/>分享到QQ空间</SideShareItem></a>
+                        <a href="/#"><SideShareItem><img src={ imgZhiFuBao } alt=""/>分享到支付宝</SideShareItem></a>
+                        <a href="/#"><SideShareItem><img src={ imgQQ } alt=""/>分享到QQ</SideShareItem></a>
+                        <a href="/#"><SideShareItem><img src={ imgPengYouQuan } alt=""/>分享到朋友圈</SideShareItem></a>
                     </SideShareWrap>
                 </SideItem>
             </SideTool>

@@ -30,6 +30,11 @@ export const changePage = (currentPage, totalPage) => ({
     totalPage
 });
 
+export const showHeader = (bool) => ({
+    type: constants.SHOW_HEADER,
+    bool: bool
+});
+
 export const getList = () => {
     return (dispatch) => {
         axios.get('/api/headerList.json').then((res) => {

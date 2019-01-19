@@ -6,7 +6,6 @@ import {
     HeaderWrapper,
     Logo,
     Nav,
-    NavItem,
     NavSearch,
     SearchInfo,
     SearchInfoTrending,
@@ -19,18 +18,23 @@ import {
     Addition,
     Button
 } from './style';
+import Login from './components/Login';
+import Logout from './components/Logout';
+import LoginLeft from './components/LoginLeft';
+import LogoutLeft from './components/LogoutLeft';
 import { Link } from 'react-router-dom';
+
 class Header extends Component {
     render() {
-        const { focus, handleInputFocus, handleInputBlur, list } = this.props;
+        const { focus, showHeader, handleInputFocus, handleInputBlur, list, isLogin } = this.props;
         return (
-            <HeaderWrapper>
+            <HeaderWrapper className={showHeader ? '' : 'hide-header'}>
                 <Link to='/'>
                     <Logo />
                 </Link>
                 <Nav>
-                    <NavItem className='left active'>首页</NavItem>
-                    <NavItem className='left'>下载App</NavItem>
+                    {/*<LoginLeft></LoginLeft>*/}
+                    <LogoutLeft></LogoutLeft>
                     <NavSearch>
                         <CSSTransition
                             timeout={300}
@@ -49,8 +53,9 @@ class Header extends Component {
                 </Nav>
                 <Addition>
                     <Button className='button_no_color'><i className="iconfont">&#xe636;</i></Button>
-                    <Button className='button_no_color'>登陆</Button>
-                    <Button className='reg'>注册</Button>
+                    {
+                        isLogin ? <Logout></Logout> : <Login></Login>
+                    }
                     <Button className='writing'><i className="iconfont">&#xe62d;</i> 写文章</Button>
                 </Addition>
             </HeaderWrapper>
@@ -94,7 +99,9 @@ const mapStateToProps = (state) => {
         list: state.get('header').get('list'),
         currentPage: state.get('header').get('currentPage'),
         totalPage: state.get('header').get('totalPage'),
-        mouseIn: state.get('header').get('mouseIn')
+        mouseIn: state.get('header').get('mouseIn'),
+        showHeader: state.getIn(['header', 'showHeader']),
+        isLogin: state.getIn(['login', 'login'])
     }
 };
 
