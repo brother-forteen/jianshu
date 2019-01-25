@@ -57,7 +57,7 @@ export const LogoutSlideItem = styled.li`
   line-height: 20px;
   vertical-align: middle;
   &:hover{
-    background: rgba(155, 155, 155, 0.1);
+    background: rgba(180, 180, 180, 0.2);
   }
   a{
     padding: 10px 20px;

@@ -1,5 +1,5 @@
 import React, { Component, Fragment } from 'react';
-import {Nav, NavItem} from "./style";
+import { NavItem } from "./style";
 
 class LoginLeft extends Component {
     render(){

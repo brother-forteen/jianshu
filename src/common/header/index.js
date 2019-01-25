@@ -33,8 +33,9 @@ class Header extends Component {
                     <Logo />
                 </Link>
                 <Nav>
-                    {/*<LoginLeft></LoginLeft>*/}
-                    <LogoutLeft></LogoutLeft>
+                    {
+                        isLogin ? <LogoutLeft></LogoutLeft> : <LoginLeft></LoginLeft>
+                    }
                     <NavSearch>
                         <CSSTransition
                             timeout={300}
