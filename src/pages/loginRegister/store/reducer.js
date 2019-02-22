@@ -2,7 +2,7 @@ import * as constants from './constants';
 import { fromJS } from 'immutable';
 
 const defaultState = fromJS({
-    login: true,
+    login: false,
     showState: '',              // tab 显示
     errorMsg: '',
     showErrorBool: false

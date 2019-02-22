@@ -2,6 +2,9 @@ import React, { Component } from 'react';
 import {
     DemoWrap
 } from './style';
+import ToolBarIndex from './context/index';
+import Modal from './Modal/index';
+import ErrorBoundary from './errorBoundary/index'
 
 import TemperatureInput from './temperatureInput';
 
@@ -13,9 +16,11 @@ class Demo extends Component {
         this.toCelsius = this.toCelsius.bind(this);
         this.toFahrenheit = this.toFahrenheit.bind(this);
         this.tryConvert = this.tryConvert.bind(this);
+        this.handleClick = this.handleClick.bind(this);
         this.state = {
             temperature: '',
-            scale: 'c'
+            scale: 'c',
+            click: 0
         }
     }
     render() {
@@ -29,8 +34,29 @@ class Demo extends Component {
             <DemoWrap>
                 <TemperatureInput scale='c' temperature={ celsius } onTemperatureChange={ this.handleCelsiusChange }></TemperatureInput>
                 <TemperatureInput scale='f' temperature={ fahrenheit } onTemperatureChange={ this.handleFahrenheitChange }></TemperatureInput>
+                <ToolBarIndex></ToolBarIndex>
+                <div id='app-root'></div>
+                <div id='modal-root'></div>
+               
+    
+                <ErrorBoundary>
+                    <div onClick={this.handleClick}>
+                        <p>Number of clicks: {this.state.click}</p>
+                        <Modal>
+                            <div className='modal'>
+                                <button>click</button>
+                            </div>
+                        </Modal>
+                    </div>
+                </ErrorBoundary>
             </DemoWrap>
         )
+    }
+    
+    handleClick(){
+        this.setState(prevState => ({
+            click: prevState.click + 1
+        }));
     }
 
     handleCelsiusChange (temperature){
