@@ -13,12 +13,6 @@ export const HomeLeft = styled.div`
   float: left;
   box-sizing: border-box;
   padding-left: 15px;
-  
-  .banner-img{
-    width: 625px;
-    height: 270px;
-    margin-bottom: 35px;
-  }
 `;
 
 export const HomeRight = styled.div`
