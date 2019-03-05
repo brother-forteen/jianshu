@@ -178,6 +178,22 @@
       "link": "",
       "iconUrl": "//upload.jianshu.io/users/upload_avatars/13213889/7314c5cc-ca7f-4542-b914-2c8dffaf324d.jpg?imageMogr2/auto-orient/strip|imageView2/1/w/96/h/96/format/webp",
       "id": 5
-    }]
+    }],
+
+    "carouseArr": [
+      {
+        "url": "./../images/banner-01.jpg",
+        "id": 1,
+        "href": ""
+      },{
+        "url": "./../images/banner-02.jpg",
+        "id": 2,
+        "href": ""
+      },{
+        "url": "./../images/banner-03.png",
+        "id": 3,
+        "href": ""
+      }
+    ]
   }
 }

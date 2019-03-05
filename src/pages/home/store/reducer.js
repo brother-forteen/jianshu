@@ -6,7 +6,8 @@ const defaultState = fromJS({
     articleList: [],
     recommendList: [],
     writerList:[],
-    currentPage: 1
+    currentPage: 1,
+    carouseArr: []
 });
 
 export default (state = defaultState, action) => {
@@ -17,7 +18,8 @@ export default (state = defaultState, action) => {
                 topicList: fromJS(action.topicList),
                 articleList: fromJS(action.articleList),
                 recommendList: fromJS(action.recommendList),
-                writerList: fromJS(action.writerList)
+                writerList: fromJS(action.writerList),
+                carouseArr: fromJS(action.carouseArr)
             });
             break;
             
@@ -27,7 +29,7 @@ export default (state = defaultState, action) => {
                 currentPage: action.currentPage
             });
             break;
-            
+
         default:
             newState = state;
             break;

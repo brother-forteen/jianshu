@@ -12,11 +12,12 @@ import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
 import { actionCreators } from './store';
 import LoginForm from './components/login';
+import RegisterForm from './components/register';
 import ErrorTip from './components/errorTip';
 
 class Login extends Component {
     render() {
-        const { showState } = this.props;
+        const { showState, getDetail } = this.props;
         return (
             <LoginWrapper>
                 <ErrorTip></ErrorTip>
@@ -25,14 +26,14 @@ class Login extends Component {
                 
                 <LoginBox>
                     <LoginTitle>
-                        <LoginTitleButton className={ showState === 'login' ?  'active' : ''}>登陆</LoginTitleButton>
+                        <Link to='/login/login'><LoginTitleButton onClick={() => getDetail('login')} className={ showState === 'login' ?  'active' : ''}>登陆</LoginTitleButton></Link>
                         <span>·</span>
-                        <LoginTitleButton className={ showState === 'register' ?  'active' : ''}>注册</LoginTitleButton>
+                        <Link to='/login/register'><LoginTitleButton onClick={() => getDetail('register')} className={ showState === 'register' ?  'active' : ''}>注册</LoginTitleButton></Link>
                     </LoginTitle>
                     
                     <FormContainer>
                         {
-                            showState === 'login' ? <LoginForm></LoginForm> : <div>注册</div>
+                            showState === 'login' ? <LoginForm></LoginForm> : <RegisterForm></RegisterForm>
                         }
                     </FormContainer>
                 </LoginBox>
